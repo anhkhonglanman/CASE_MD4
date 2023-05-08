@@ -2,6 +2,7 @@ import {Request, Response} from "express";
 import houseService from "../service/houseService";
 import imageService from "../service/imageService";
 import ImageService from "../service/imageService";
+import AddressService from "../service/addressService";
 
 
 class HouseController {
@@ -39,14 +40,19 @@ class HouseController {
         let id = req['decode']['id'];
         let data = req.body;
         let imageData = data.image;
+        console.log(data.phuong);
+        let phuongDetail = await AddressService.getPhuongDetail(data.phuong)
+        console.log("--phuongDetail:", phuongDetail)
+        data.quan = phuongDetail.quan.id;
+        console.log(data.quan)
+        data.city = phuongDetail.quan.city.id;
+        console.log(data.city)
+        console.log("data to create house:", data)
+
         let house = await houseService.addHouse(data, id);
         let idHouse = house.id
-        await ImageService.addImage(idHouse, imageData)
-        res.status(200).json({
-                success: true,
-                data: house.id
-            }
-        )
+        await imageService.addImage(idHouse, imageData)
+        res.status(200).json(house)
     }
     editHouseById = async (req: Request, res: Response) => {
         let idHouse = req.params.id
@@ -58,7 +64,7 @@ class HouseController {
 
     }
     showHouseById = async (req: Request, res: Response) => {
-        let id = req.params.id
+        let id = parseInt(req.params.id)
         let house = await houseService.findHouseById(id);
         res.status(200).json({
                 success: true,

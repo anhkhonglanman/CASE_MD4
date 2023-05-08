@@ -18,12 +18,28 @@ class AddressService {
     getCity = async () => {
         return await this.cityRepository.find()
     }
-    getQuan = async () => {
-        return await this.quanRepository.find()
+    getQuan = async (id) => {
+        return await AppDataSource.createQueryBuilder()
+            .select("quan")
+            .from(Quan, "quan")
+            .where("quan.cityId = :id", {id: id})
+            .getMany()
     }
-    getPhuong = async () => {
-        return await this.phuongRepository.find()
+    getPhuong = async (id) => {
+        return await AppDataSource.createQueryBuilder()
+            .select("phuong")
+            .from(Phuong, "phuong")
+            .where("phuong.quanId = :id", {id: id})
+            .getMany()
     }
-
+    getPhuongDetail = async (id) => {
+        return await AppDataSource.createQueryBuilder()
+            .select("phuong")
+            .from(Phuong, "phuong")
+            .where("phuong.id = :id", {id: id})
+            .innerJoinAndSelect("phuong.quan", "quan")
+            .innerJoinAndSelect("quan.city", "city")
+            .getOne()
+    }
 }
 export default new AddressService();

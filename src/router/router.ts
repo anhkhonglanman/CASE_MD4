@@ -9,6 +9,8 @@ const router = Router();
 router.use('/users', userRouter);
 router.use('/houses',houseRouter);
 router.get('/city', addressController.getCity);
+router.get('/quan', addressController.getQuan);
+router.get('/phuong', addressController.getPhuong);
 router.use('/contracts',contractRouter)
 
 export default  router;
