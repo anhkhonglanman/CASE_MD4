@@ -12,7 +12,13 @@ class HouseService {
                 phuong: true,
                 quan: true,
                 city: true,
-                image: true
+                image: true,
+                user: true
+            }, select: {
+                user: {
+                    name: true,
+                    phoneNumber: true
+                }
             }
         })
         return houses
@@ -78,6 +84,7 @@ class HouseService {
         let newHouse = new House();
         newHouse.price = house.price;
         newHouse.area = house.area;
+        newHouse.brief = house.brief;
         newHouse.description = house.description;
         newHouse.user = id;
         newHouse.phuong = house.phuong

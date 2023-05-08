@@ -11,7 +11,7 @@ export class User {
     name: string;
     @Column()
     phoneNumber : number;
-    @Column({type: "varchar", length: 255})
+    @Column({type: "varchar", length: 255, default: ""})
     address: string;
     @Column({type: "varchar", length: 255})
     username: string;

@@ -38,7 +38,9 @@ class HouseController {
     createHouse = async (req: Request, res: Response) => {
         let id = req['decode']['id'];
         let data = req.body;
-        let imageData = data.image;
+        console.log("req.body:", req.body)
+        let imageData = JSON.parse(data.image);
+        console.log("image Data:", typeof imageData, imageData)
         let house = await houseService.addHouse(data, id);
         let idHouse = house.id
         await ImageService.addImage(idHouse, imageData)
