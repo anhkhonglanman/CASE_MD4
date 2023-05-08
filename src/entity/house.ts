@@ -11,15 +11,18 @@ import {City} from "./city";
 export class House {
     @PrimaryGeneratedColumn()
     id: number;
-    @Column()
-    price: number;
 
     @Column()
+    price: number;
+    @Column()
     area: number;
+    @Column({type: "varchar", length: 300})
+    brief: string;
     @Column({type: "varchar", length: 300})
     description: string;
     @OneToMany(() => Image, (image) => image.house)
     image: Image[];
+
     @OneToMany(() => Contract, (contract) => contract.house)
     contract: Contract[];
     @ManyToOne(() => User, (user) => user.house)
@@ -33,6 +36,7 @@ export class House {
     quan: Quan;
     @ManyToOne(() => City, (city) => city.house)
     city: City;
+
     @Column({
         default: 0
     })
