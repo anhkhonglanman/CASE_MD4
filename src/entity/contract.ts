@@ -20,6 +20,6 @@ export class Contract{
     house : House;
     @ManyToOne(()=> User, (user)=> user.contract)
     user : User;
-    @OneToMany(()=> ContractStatus, (contractStatus)=> contractStatus.contract)
-    contractStatus:ContractStatus[];
+    @ManyToOne(()=> ContractStatus, (contractStatus)=> contractStatus.contract)
+    status: number
 }

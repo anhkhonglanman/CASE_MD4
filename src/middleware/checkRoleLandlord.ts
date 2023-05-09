@@ -4,7 +4,8 @@ export const checkRoleLandlord = (req, res, next) => {
        return  next()
     } else {
         res.status(401).json({
-        message: 'You must be an administrator'
+            message: "ban khong co quyen landlord",
+            success: false
     })
     }
 

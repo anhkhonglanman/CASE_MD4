@@ -1,4 +1,4 @@
-export const decentralization = (req, res, next) => {
+export const checkRoleClient = (req, res, next) => {
     if(req.decode.role === 1){
         next()
     }else{

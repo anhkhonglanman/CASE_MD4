@@ -4,9 +4,9 @@ import houseService from "../service/houseService";
 
 
 class ContractController {
-    getContractByIdUser = async (req: Request, res: Response) => {
+    getContractByHouseId = async (req: Request, res: Response) => {
         let id = req['decode'].id
-        let contract = await contractService.getContractByUserID(id);
+        let contract = await contractService.getContractByHouseID(id);
         res.status(201).json(contract);
     }
     getContractById = async (req: Request, res: Response) => {
@@ -45,6 +45,27 @@ class ContractController {
         soThang -= thang1.getMonth();
         soThang += thang2.getMonth();
         return soThang <= 0 ? 0 : soThang;
+    }
+
+    cancelContract = async (req: Request, res: Response) => {
+        let id = req.params.id;
+        let contract = await contractService.getContractByID(id);
+        let startmonth = contract.startMonth.getMonth() + 1;
+        let year = contract.startMonth.getFullYear();
+        let date = new Date()
+        let mm = date.getMonth() + 1;
+        let yearNow = date.getFullYear();
+        if (year === yearNow) {
+            if (startmonth < mm) {
+                await contractService.cancelContractByUser(id);
+                res.status(201).json(" huy hop dong  thanh cong");
+            } else {
+                res.status(201).json(" huy hop dong khong thanh cong");
+            }
+        } else {
+            res.status(201).json(" huy hop dong  thanh cong");
+        }
+
     }
 }
 

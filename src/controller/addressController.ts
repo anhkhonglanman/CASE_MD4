@@ -6,19 +6,25 @@ class AddressController {
 
     getCity = async (req: Request, res: Response) => {
         let city = await addressService.getCity();
-        res.status(201).json(city);
+        res.status(201).json({
+            success: true,
+            data: city});
     }
     getQuan = async (req: Request, res: Response) => {
         let id = req.query.city
         console.log(req.query, id)
-        let city = await addressService.getQuan(id);
-        res.status(201).json(city);
+        let quan = await addressService.getQuan(id);
+        res.status(201).json({
+            success: true,
+            data: quan});
     }
     getPhuong = async (req: Request, res: Response) => {
         let id = req.query.quan
         console.log(req.query, id)
-        let quan = await addressService.getPhuong(id);
-        res.status(201).json(quan);
+        let phuong = await addressService.getPhuong(id);
+        res.status(201).json({
+            success: true,
+            data: phuong});
     }
 
 

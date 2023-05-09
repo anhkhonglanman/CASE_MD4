@@ -21,6 +21,6 @@ export class User {
     role : number;
     @OneToMany(()=>Contract,(contract)=>contract.user)
     contract:Contract[];
-    @OneToMany(()=>User,(user)=>user.house)
+    @OneToMany(()=>House,(user)=>house.user)
     house:House[]
 }

@@ -67,7 +67,10 @@ class HouseController {
         let imageData = data.image;
         await imageService.upDateImage(imageData, idHouse)
         await houseService.updateHouse(idHouse, data);
-        res.status(200).json("ok")
+        res.status(200).json({
+            message: "ok",
+            success: true
+        })
 
     }
     showHouseById = async (req: Request, res: Response) => {
@@ -82,7 +85,8 @@ class HouseController {
     delete = async (req: Request, res: Response) => {
         let id = parseInt(req.params.id)
         let house = await houseService.delete(id);
-        res.status(200).json(house)
+        res.status(200).json({
+            success: true,})
     }
 
 

@@ -8,6 +8,6 @@ export class ContractStatus {
     id: number;
     @Column()
     name:string;
-    @ManyToOne(()=> Contract,(contract)=>contract.contractStatus)
-    contract:Contract
+    @OneToMany(()=> Contract,(contract)=>contract.status)
+    contract:Contract[]
 }
