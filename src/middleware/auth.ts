@@ -9,7 +9,8 @@ export const auth = (req, res, next) => {
                 if (err) {
                     res.status(401).json({
                         error: err.message,
-                        message: "ban chua dang nhap"
+                        message: "phien dang nhap het han, vui long dang nhap lai",
+                        success: false
                     })
                 } else {
                     req.decode = payload;
@@ -19,12 +20,14 @@ export const auth = (req, res, next) => {
             })
         } else {
             res.status(401).json({
-                message: "ban chua dang nhap"
+                message: "authorization header invalid",
+                success: false
             })
         }
     } else {
         res.status(401).json({
-            message: "ban chua dang nhap"
+            message: "ban chua dang nhap",
+            success: false
         })
     }
 

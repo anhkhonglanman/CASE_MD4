@@ -8,7 +8,7 @@ class ContractService {
         this.contractRepository = AppDataSource.getRepository(Contract);
     }
 
-    getContractByUserID = async (id) => {
+    getContractByHouseID = async (id) => {
 
         let contract = await this.contractRepository.find({
             relations: {
@@ -23,11 +23,14 @@ class ContractService {
 
 
     getContractByID = async (id) => {
-
-        let contract = await  AppDataSource.createQueryBuilder()
+        let contract = await AppDataSource.createQueryBuilder()
             .select("contract")
+            .addSelect("user.id")
+            .addSelect('contract.id')
             .from(Contract, "contract")
-            .where({id : id})
+            .innerJoin("contract.user", "user")
+            .innerJoinAndSelect("contract.status", "Status")
+            .where({id: id})
             .getOne()
         return contract
     }
@@ -59,11 +62,25 @@ class ContractService {
                     endMonth: data.endMonth,
                     cost: cost,
                     house: id,
-                    user: userId
+                    user: userId,
+                    status: 3
                 }
             )
             .execute()
+    }
 
+    cancelContractByUser = async (id) => {
+        let contract = await this.contractRepository
+            .createQueryBuilder()
+            .update()
+            .set({
+                status: 4
+            })
+            .where("id = :id", {id: id})
+            .execute();
+
+
+        return contract;
     }
 }
 

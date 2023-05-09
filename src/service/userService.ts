@@ -27,34 +27,25 @@ class UserService {
     checkUser = async (user) => {
         let userFind = await this.userRepository.query(`select *
                                                         from user
-                                                        where username = "${user.username}"`)
+                                                        where username = "${user.username}"`);
         let usserFinds = userFind[0]
+        console.log(usserFinds)
         if (usserFinds) {
             let pass = await bcrypt.compare(user.password, usserFinds.password);
             if (pass) {
-                let payload ;
-                if (usserFinds.role === 1) {
-                    payload = {
-                        id: usserFinds.id,
-                        username: user.username,
-                        role: 1
-                    }
-                } else {
-                    payload = {
-                        id: usserFinds.id,
-                        username: user.username,
-                        role: 2
-                    }
+                let payload = {
+                    id: usserFinds.id,
+                    username: user.username,
+                    role: usserFinds.roleId
                 }
+                console.log(payload)
                 return jwt.sign(payload, SECRET, {
                     expiresIn: 36000 * 10 * 100
                 })
-            } else {
-                return 'khong dung pass';
             }
 
         } else {
-            return 'khong dung tai khoan hoac mat khau'
+            return 'khong dung pass';
         }
     }
 
@@ -65,6 +56,7 @@ class UserService {
         return userFind;
     }
     updateUser = async (id, user) => {
+        user.password = await bcrypt.hash(user.password, 10)
         await this.userRepository.update({id: id}, user);
     }
     checkUsersignup = async (user) => {
