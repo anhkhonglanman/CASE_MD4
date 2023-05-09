@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="868436b5-76c5-4c3d-8168-5c470d7e626d" name="Changes" comment="push duy to dev">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/contractController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/contractController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/houseController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/houseController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/contractService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/contractService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/houseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/houseService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +37,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="dev" />
-                    <option name="lastUsedInstant" value="1683623531" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1683624696" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1683595170" />
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1683623531" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="giang" />
@@ -130,7 +126,7 @@
       <workItem from="1683538064750" duration="2263000" />
       <workItem from="1683550312797" duration="3181000" />
       <workItem from="1683594996319" duration="16740000" />
-      <workItem from="1683623251814" duration="458000" />
+      <workItem from="1683623251814" duration="2676000" />
     </task>
     <task id="LOCAL-00001" summary="dang o quyen">
       <created>1683468979159</created>
