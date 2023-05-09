@@ -30,6 +30,7 @@ class ContractController {
         let house = await houseService.findHouseById(houseId);
         console.log(house)
         let price: number = house.price;
+        console.log(price)
         let startMonth = req.body.startMonth
         let endMonth = req.body.endMonth
         let month: number = this.tinhSoThang(startMonth, endMonth);

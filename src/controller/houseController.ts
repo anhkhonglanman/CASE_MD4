@@ -16,21 +16,22 @@ class HouseController {
             req.query.priceLow = "0";
         }
         if (!req.query.priceHigh) {
-            req.query.priceLow = "1000000"
+            req.query.priceHigh = "1000000"
         }
         if (!req.query.areaLow) {
-            req.query.areaLow = "50"
+            req.query.areaLow = "0"
         }
         if (!req.query.areaHigh) {
             req.query.areaHigh = "1000"
         }
-        if (!req.query.cityId) {
-            // req.query.quanId = "0"
-            // req.query.phuongId = "0"
-            req.query.cityId = "0"
+        if (!req.query.sort) {
+            req.query.sort = "0"
         }
+        // if (req.query.sort !== "1" || req.query.sort !== "2" || req.query.sort !== "3" || req.query.sort !== "4") {
+        //     req.query.sort = "0"
+        // }
+        console.log("query after set default:", req.query)
         let house = await houseService.findHouse(req.query)
-        console.log(house)
         res.status(201).json(house);
         // res.status(201).json("ok");
     }

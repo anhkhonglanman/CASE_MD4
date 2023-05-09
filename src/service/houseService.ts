@@ -36,44 +36,85 @@ class HouseService {
             .getOne()
     }
     findHouse = async (query) => {
-        // if (query.phuongId) {
-        //     return await this.houseRepository.createQueryBuilder("house")
-        //         .where("house.price >= :priceLow", {priceLow: query.priceLow})
-        //         .andWhere(`house.phuongId = :phuongId`, {phuongId: query.phuongId})
-        //         .getMany()
-        // } else if (query.quanId) {
-        //     return await this.houseRepository.createQueryBuilder("house")
-        //         .where("house.price >= :priceLow", {priceLow: query.priceLow})
-        //         .andWhere(`house.quanId = :quanId`, {quanId: query.quanId})
-        //         .getMany()
-        // } else if (query.cityId) {
-        //     return await this.houseRepository.createQueryBuilder("house")
-        //         .where("house.price >= :priceLow", {priceLow: query.priceLow})
-        //         .andWhere(`house.cityId = :cityId`, {cityId: query.cityId})
-        //         .getMany()
-        // } else {
-        //     return await this.houseRepository.createQueryBuilder("house")
-        //         .where("house.price >= :priceLow", {priceLow: query.priceLow})
-        //         .getMany()
-        // }
+        // let column = (query.sort)? "house.price" : "house.area";
+        let column;
+        let asc;
 
-        const qb = this.houseRepository.createQueryBuilder('house')
-            .where('house.price >= :priceLow', {priceLow: query.priceLow})
-            .orWhere('house.price <= :priceHigh', {priceHigh: query.priceHigh})
-            // .orWhere('house.area BETWEEN :min AND :max', {min : 50, max : 1000})
-            .orWhere('house.area >= :areaLow', {areaLow: query.areaHigh})
-            .orWhere('house.area <= :areaHigh', {areaHigh: query.areaLow})
-        if (query.phuongId) {
-            qb.andWhere(`house.phuongId = :phuongId`, {phuongId: query.phuongId});
-            await qb.getMany();
-        } else if (query.quanId) {
-            qb.andWhere(`house.quanId = :quanId`, {quanId: query.quanId});
-            await qb.getMany();
-        } else if (query.cityId) {
-            qb.andWhere(`house.cityId = :cityId`, {cityId: query.cityId});
-            await qb.getMany();
+
+        if (query.sort == "1") {
+            column = "house.price"
+            asc = "ASC"
+        } else if (query.sort == "2") {
+            column = "house.price"
+            asc = "DESC"
+        } else if (query.sort == "3") {
+            column = "house.area"
+            asc = "ASC"
+        } else if (query.sort == "4") {
+            column = "house.area"
+            asc = "DESC"
+        } else {
+            column = ""
+            asc = ""
         }
-        return await qb.getMany();
+
+
+        if (query.phuongId) {
+            console.log("tim kiem theo phuong")
+            return await this.houseRepository.createQueryBuilder("house")
+                .where("house.price >= :priceLow", {priceLow: query.priceLow})
+                .orWhere('house.price <= :priceHigh', {priceHigh: query.priceHigh})
+                .andWhere(`house.phuongId = :phuongId`, {phuongId: query.phuongId})
+                .orderBy(column, asc)
+                .getMany()
+        } else if (query.quanId) {
+            console.log("tim kiem theo quan")
+            return await this.houseRepository.createQueryBuilder("house")
+                .where("house.price >= :priceLow", {priceLow: query.priceLow})
+                // .orWhere('house.price <= :priceHigh', {priceHigh: query.priceHigh})
+                .andWhere(`house.quanId = :quanId`, {quanId: query.quanId})
+                .orderBy(column, asc)
+                .getMany()
+        } else if (query.cityId) {
+            console.log("tim kiem theo city")
+            return await this.houseRepository.createQueryBuilder("house")
+                .where("house.price >= :priceLow", {priceLow: query.priceLow})
+                // .orWhere('house.price <= :priceHigh', {priceHigh: query.priceHigh})
+                .andWhere(`house.cityId = :cityId`, {cityId: query.cityId})
+                .orderBy(column, asc)
+                .getMany()
+        } else {
+            return await this.houseRepository.createQueryBuilder("house")
+                .where("house.price >= :priceLow", {priceLow: query.priceLow})
+                .orWhere('house.price <= :priceHigh', {priceHigh: query.priceHigh})
+                .orderBy(column, asc)
+                .getMany()
+        }
+
+        // const qb = this.houseRepository.createQueryBuilder('house')
+        //     .where('house.price >= :priceLow', {priceLow: query.priceLow})
+        //     .orWhere('house.price <= :priceHigh', {priceHigh: query.priceHigh})
+        //     // .orWhere('house.area BETWEEN :min AND :max', {min : 50, max : 1000})
+        //     .orWhere('house.area >= :areaLow', {areaLow: query.areaHigh})
+        //     .orWhere('house.area <= :areaHigh', {areaHigh: query.areaLow})
+        // if (query.phuongId) {
+        //     console.log(;
+        // } else if (query.quanId) {
+        //     console.log("tim kiem theo quan")
+        //     // qb.andWhere(`house.quanId = :quanId`, {quanId: query.quanId});
+        //     return await qb.andWhere(`house.quanI"tim kiem theo phuong")
+        //     qb.andWhere(`house.phuongId = :phuongId`, {phuongId: query.phuongId});
+        //     // return await qb.andWhere(`house.phuongId = :phuongId`, {phuongId: query.phuongId}).getMany();
+        //     await qb.getMany()d = :quanId`, {quanId: query.quanId}).getMany();
+        //     // return await qb.getMany();
+        // } else if (query.cityId) {
+        //     console.log("tim kiem theo city")
+        //     // qb.andWhere(`house.cityId = :cityId`, {cityId: query.cityId});
+        //     return qb.andWhere(`house.cityId = :cityId`, {cityId: query.cityId}).getMany();
+        //     // await qb.getMany();
+        // }
+        // return await qb.getMany();
+
         // return await this.houseRepository.createQueryBuilder("house")
         //     .where("house.price >= :priceLow", {priceLow: query.priceLow})
         //     .andWhere(`house.phuongId ${(query.phuongId) ? "=" : ">"} :phuongId`,
