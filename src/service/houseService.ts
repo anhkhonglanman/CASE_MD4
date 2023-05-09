@@ -29,9 +29,13 @@ class HouseService {
             .select("house")
             .addSelect("user.name")
             .addSelect("user.phoneNumber")
+            .addSelect("user.id")
             .from(House, "house")
             .leftJoinAndSelect("house.image", "image")
             .innerJoin("house.user", "user")
+            .innerJoinAndSelect("house.city", "city")
+            .innerJoinAndSelect("house.quan", "quan")
+            .innerJoinAndSelect("house.phuong", "phuong")
             .where("house.id = :id", {id: id})
             .getOne()
     }
@@ -102,10 +106,11 @@ class HouseService {
             .update({
                 price: house.price,
                 area: house.area,
+                brief: house.brief,
                 description: house.description,
                 phuong: house.phuong,
-                quan: house.quanId,
-                city: house.cityId,
+                quan: house.quan,
+                city: house.city,
             }).where({id:id})
             .execute();
     }

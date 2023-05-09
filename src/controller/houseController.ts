@@ -63,10 +63,20 @@ class HouseController {
     editHouseById = async (req: Request, res: Response) => {
         let idHouse = req.params.id
         let data = req.body;
-        let imageData = data.image;
+        let imageData = JSON.parse(data.image);
+        let phuongDetail = await AddressService.getPhuongDetail(data.phuong)
+        console.log("--phuongDetail:", phuongDetail)
+        data.quan = phuongDetail.quan.id;
+        console.log(data.quan)
+        data.city = phuongDetail.quan.city.id;
+        console.log(data.city)
         await imageService.upDateImage(imageData, idHouse)
         await houseService.updateHouse(idHouse, data);
-        res.status(200).json("ok")
+        res.status(200).json({
+            data: null,
+            message: "ok",
+            success: true
+        })
 
     }
     showHouseById = async (req: Request, res: Response) => {
