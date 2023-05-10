@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="868436b5-76c5-4c3d-8168-5c470d7e626d" name="Changes" comment="push duy to dev">
-      <change afterPath="$PROJECT_DIR$/src/middleware/checkContractClien.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/addressController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/addressController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/contractController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/contractController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/houseController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/houseController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/contract.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/contractStatus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/contractStatus.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/checkOwnerShip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkOwnerShip.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/checkRoleLandlord.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkRoleLandlord.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/decentralization.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkRoleClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/contractRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/contractRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/userRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/contractService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/contractService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/userService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/houseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/houseService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,13 +85,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>2e3bc8ac-813a-4903-97d0-903bbed3c5d8</source-data-source-id>\n        <source-path>schema/&quot;local&quot;</source-path>\n        <target-data-source-id>2e3bc8ac-813a-4903-97d0-903bbed3c5d8</target-data-source-id>\n        <target-path>schema/&quot;local&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
-    "last_opened_file_path": "E:/MD3/CASE_MD4/src/middleware",
+    "last_opened_file_path": "D:/CodeGymBootcamp/Module_4/clone/module4_frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "E:\\MD3\\CASE_MD4\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "D:\\CASE_MD4\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {

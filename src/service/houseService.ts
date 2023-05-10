@@ -1,10 +1,13 @@
 import {AppDataSource} from "../data-source";
 import {House} from "../entity/house";
+
 class HouseService {
     private houseRepository;
+
     constructor() {
         this.houseRepository = AppDataSource.getRepository(House);
     }
+
     findAllHouse = async () => {
 
         let houses = await this.houseRepository.find({
@@ -25,10 +28,10 @@ class HouseService {
         return houses
     }
     findHouseById = async (id) => {
-        return  await AppDataSource.createQueryBuilder()
+        return await AppDataSource.createQueryBuilder()
             .select("house")
             .addSelect("user.name")
-            .addSelect("user.phoneNumber")
+            .addSelect("user.id")
             .from(House, "house")
             .leftJoinAndSelect("house.image", "image")
             .innerJoin("house.user", "user")
@@ -147,16 +150,20 @@ class HouseService {
                 phuong: house.phuong,
                 quan: house.quanId,
                 city: house.cityId,
-            }).where({id:id})
+            })
+            .where({id: id})
             .execute();
     }
     delete = async (id) => {
-        if (id) {
-            await this.houseRepository.delete({id: id})
-        } else {
-            return 'khong ton tai'
-        }
+        // await this.houseRepository.delete({id: id})
+        await this.houseRepository
+            .createQueryBuilder()
+            .update({
+                isRemoved: true
+            })
+            // .set()
+            .where("id = :id", {id: id})
+            .execute()
     }
 }
-
 export default new HouseService()
