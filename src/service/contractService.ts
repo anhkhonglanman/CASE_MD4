@@ -9,13 +9,15 @@ class ContractService {
     }
 
     getContractByHouseID = async (id) => {
-
         let contract = await this.contractRepository.find({
             relations: {
-                house: true
+                house: true,
+                status: true
             },
             where: {
-                house: id
+                house: {
+                    id: id
+                }
             }
         })
         return contract
@@ -81,6 +83,38 @@ class ContractService {
 
 
         return contract;
+    }
+
+    getContractByUesrId = async (userId) => {
+        let contract = await this.contractRepository.find({
+            relations: {
+                house: true,
+                status: true,
+                user:true
+
+            },
+            where: {
+                user: {
+                    id: userId
+                }
+            }
+        })
+        return contract
+    }
+    getContractByOwnerId= async (userId) => {
+        let contract = await this.contractRepository.find({
+            relations: {
+                house: true,
+                status: true,
+
+            },
+            where: {
+                house: {
+                    user: userId
+                }
+            }
+        })
+        return contract
     }
 }
 

@@ -1,13 +1,10 @@
 import {AppDataSource} from "../data-source";
 import {House} from "../entity/house";
-
 class HouseService {
     private houseRepository;
-
     constructor() {
         this.houseRepository = AppDataSource.getRepository(House);
     }
-
     findAllHouse = async () => {
 
         let houses = await this.houseRepository.find({
@@ -32,6 +29,7 @@ class HouseService {
             .select("house")
             .addSelect("user.name")
             .addSelect("user.id")
+            .addSelect("user.phoneNumber")
             .from(House, "house")
             .leftJoinAndSelect("house.image", "image")
             .innerJoin("house.user", "user")

@@ -4,7 +4,6 @@ export const checkOwnerShip = async (req, res, next, ) => {
     let idHouse = req.params.id
     let idOwner = req['decode'].id;
     let house:House = await houseService.findHouseById(parseInt(idHouse));
-    console.log("house found in check owner ship:", house)
     if (house.user.id == idOwner) {
         return next()
     } else {
