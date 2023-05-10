@@ -37,7 +37,15 @@ class ContractService {
         return contract
     }
     showAll = async () => {
-        let contract = await this.contractRepository.find();
+        let contract = await this.contractRepository.find({
+            relations: {
+                house: {
+                    phuong: true,
+                    quan: true,
+                    city: true
+                }
+            }
+        });
         return contract
     }
     updateContractByClient = async (id, data) => {
@@ -53,17 +61,18 @@ class ContractService {
 
         return contract;
     }
-    addContractByClient = async (id, data, cost, userId, price) => {
+    addContractByClient = async (data, userId) => {
         await this.contractRepository
             .createQueryBuilder()
             .insert()
             .into(Contract)
             .values({
-                    price: price,
+                    price: data.price,
                     startMonth: data.startMonth,
                     endMonth: data.endMonth,
-                    cost: cost,
-                    house: id,
+                    duration: data.duration,
+                    cost: data.cost,
+                    house: data.houseId,
                     user: userId,
                     status: 3
                 }
@@ -90,7 +99,7 @@ class ContractService {
             relations: {
                 house: true,
                 status: true,
-                user:true
+                user: true
 
             },
             where: {
@@ -101,7 +110,7 @@ class ContractService {
         })
         return contract
     }
-    getContractByOwnerId= async (userId) => {
+    getContractByOwnerId = async (userId) => {
         let contract = await this.contractRepository.find({
             relations: {
                 house: true,

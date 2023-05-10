@@ -9,7 +9,10 @@ class ContractController {
             let id = req.query.id
             let contract = await contractService.getContractByHouseID(id);
             console.log(contract)
-            res.status(201).json(contract);
+            res.status(201).json({
+                data : contract,
+                success : true
+            });
         } catch (error) {
             console.log("error in get contract:", error)
             res.status(400).json({
@@ -25,14 +28,20 @@ class ContractController {
             let user = req['decode']
             if (user.role === 2) {
                 let idOwner = req['decode'].id
-                let contrac= await contractService.getContractByOwnerId(idOwner);
+                let contract = await contractService.getContractByOwnerId(idOwner);
                 console.log("day la id owenr")
-                res.status(201).json(contrac);
+                res.status(201).json({
+                    data : contract,
+                    success : true
+                });
             } else {
                 let idUser = req['decode'].id
                 let contract = await contractService.getContractByUesrId(idUser);
                 console.log("day la id user")
-                res.status(201).json(contract);
+                res.status(201).json({
+                    data : contract,
+                    success : true
+                });
             }
 
         } catch (error) {
@@ -48,7 +57,10 @@ class ContractController {
             let id = req.params.id
             console.log(id)
             let contract = await contractService.getContractByID(id);
-            res.status(201).json(contract);
+            res.status(201).json({
+                data : contract,
+                success : true
+            });
         } catch (error) {
             console.log("error in get contract:", error)
             res.status(400).json({
@@ -61,7 +73,10 @@ class ContractController {
         try {
             let idContract = req.params.id;
             let contract = await contractService.updateContractByClient(parseInt(idContract), req.body)
-            res.status(201).json(contract);
+            res.status(201).json({
+                data : contract,
+                success : true
+            });
         } catch (error) {
             console.log("error in get contract:", error)
             res.status(400).json({
@@ -73,7 +88,10 @@ class ContractController {
     getAll = async (req: Request, res: Response) => {
         try {
             let contract = await contractService.showAll();
-            res.status(201).json(contract);
+            res.status(201).json({
+                data : contract,
+                success : true
+            });
         } catch (error) {
             console.log("error in get contract:", error)
             res.status(400).json({
@@ -85,17 +103,22 @@ class ContractController {
     createContractByClient = async (req: Request, res: Response) => {
         try {
             let userId = req['decode'].id
-            let houseId = req.body.houseId;
-            let house = await houseService.findHouseById(houseId);
+            let house = await houseService.findHouseById(req.body.houseId);
             console.log(house)
             let price: number = house.price;
             console.log(price)
             let startMonth = req.body.startMonth
             let endMonth = req.body.endMonth
             let month: number = this.tinhSoThang(startMonth, endMonth);
+            req.body.duration = month;
             let cost = month * price
-            await contractService.addContractByClient(houseId, req.body, cost, parseInt(userId), price)
-            res.status(201).json("them hop dong  thanh cong");
+            req.body.cost = cost;
+            req.body.price = price;
+            await contractService.addContractByClient(req.body, parseInt(userId))
+            res.status(201).json({
+                data : "them hop dong thanh cong",
+                success : true
+            });
         } catch (error) {
             console.log("error in get contract:", error)
             res.status(400).json({
@@ -126,19 +149,27 @@ class ContractController {
             let startmonth = contract.startMonth.getMonth() + 1;
             let year = contract.startMonth.getFullYear();
             let date = new Date()
-            let mm = date.getMonth() + 1;
-            let yearNow = date.getFullYear();
-            if (year === yearNow) {
-                if (startmonth < mm) {
+            let currentMonth = date.getMonth() + 1;
+            let currentYear = date.getFullYear();
+            console.log("start:", startmonth, year)
+            console.log("now:", currentMonth, currentYear)
+            console.log(startmonth < currentMonth, typeof startmonth, typeof currentMonth)
+            if (year === currentYear) {
+                if (currentMonth < startmonth) {
                     await contractService.cancelContractByUser(id);
-                    res.status(201).json(" huy hop dong  thanh cong");
+                    res.status(201).json(" huy hop dong thanh cong");
                 } else {
-                    res.status(201).json(" huy hop dong khong thanh cong");
+                    res.status(201).json({
+                        message: "huy hop dong khong thanh cong month > now",
+                        success: false
+                    });
                 }
+            } else if (currentYear < year) {
+                await contractService.cancelContractByUser(id);
+                res.status(201).json(" huy hop dong thanh cong");
             } else {
-                res.status(201).json(" huy hop dong  thanh cong");
+                res.status(201).json(" huy hop dong khong thanh cong year > now");
             }
-
         } catch (error) {
             console.log("error in get contract:", error)
             res.status(400).json({

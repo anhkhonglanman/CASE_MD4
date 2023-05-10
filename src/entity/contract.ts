@@ -15,6 +15,8 @@ export class Contract{
     @Column()
     endMonth:Date;
     @Column()
+    duration: number;
+    @Column()
     cost:number;
     @ManyToOne(()=> House, (house)=> house.contract)
     house : House;
