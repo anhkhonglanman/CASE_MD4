@@ -11,6 +11,6 @@ const contractRouter = Router();
 contractRouter.get('', contractController.getAll)
 contractRouter.get('/:id', auth, contractController.getContractById)
 contractRouter.put('/:id', auth, checkRoleClient, contractController.editContractByClient)
-contractRouter.post('/contract', auth, checkRoleClient, contractController.createContractByClient)
+contractRouter.post('/', auth, checkRoleClient, contractController.createContractByClient)
 contractRouter.delete('/:id', auth, checkRoleClient, checkContractClien, contractController.cancelContract)
 export default  contractRouter

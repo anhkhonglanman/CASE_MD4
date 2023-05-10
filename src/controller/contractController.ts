@@ -33,6 +33,7 @@ class ContractController {
         console.log(price)
         let startMonth = req.body.startMonth
         let endMonth = req.body.endMonth
+        console.log(startMonth, typeof startMonth, endMonth, typeof endMonth)
         let month: number = this.tinhSoThang(startMonth, endMonth);
         let cost = month * price
         await contractService.addContractByClient(houseId, req.body, cost, parseInt(userId), price)
@@ -44,6 +45,7 @@ class ContractController {
         let soThang = (thang2.getFullYear() - thang1.getFullYear()) * 12;
         soThang -= thang1.getMonth();
         soThang += thang2.getMonth();
+        soThang++;
         return soThang <= 0 ? 0 : soThang;
     }
 
