@@ -28,7 +28,7 @@ class HouseService {
         return  await AppDataSource.createQueryBuilder()
             .select("house")
             .addSelect("user.name")
-            .addSelect("user.phoneNumber")
+            .addSelect("user.id")
             .from(House, "house")
             .leftJoinAndSelect("house.image", "image")
             .innerJoin("house.user", "user")
@@ -151,11 +151,13 @@ class HouseService {
             .execute();
     }
     delete = async (id) => {
-        if (id) {
-            await this.houseRepository.delete({id: id})
-        } else {
-            return 'khong ton tai'
-        }
+        await this.houseRepository.createQueryBuilder()
+            .update()
+            .set({
+                isRemoved: true
+            })
+            .where("id = :id", {id: id})
+            .execute()
     }
 }
 

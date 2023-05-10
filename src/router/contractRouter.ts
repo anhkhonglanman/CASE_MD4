@@ -9,6 +9,8 @@ import {checkContractClien} from "../middleware/checkContractClien";
 const contractRouter = Router();
 
 contractRouter.get('', contractController.getAll)
+contractRouter.get('/contract/house/:id', contractController.getContractByHouseId)
+contractRouter.get('/contraca',auth, contractController.getContractByUesrId)
 contractRouter.get('/:id', auth, contractController.getContractById)
 contractRouter.put('/:id', auth, checkRoleClient, contractController.editContractByClient)
 contractRouter.post('/contract', auth, checkRoleClient, contractController.createContractByClient)
