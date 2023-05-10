@@ -49,6 +49,7 @@ class HouseController {
                 success: true
             });
         } catch (e) {
+            console.log("error in searching house:", e)
             res.status(500).json({
                 message : "get house failed",
                 success : false
