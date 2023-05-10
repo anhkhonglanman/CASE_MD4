@@ -147,6 +147,8 @@ class ContractController {
             })
         }
     }
+
+
 }
 
 export default new ContractController();
