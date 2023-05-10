@@ -33,6 +33,9 @@ class HouseService {
             .from(House, "house")
             .leftJoinAndSelect("house.image", "image")
             .innerJoin("house.user", "user")
+            .innerJoinAndSelect("house.city", "city")
+            .innerJoinAndSelect("house.quan", "quan")
+            .innerJoinAndSelect("house.phuong", "phuong")
             .where("house.id = :id", {id: id})
             .getOne()
     }
@@ -144,12 +147,13 @@ class HouseService {
             .update({
                 price: house.price,
                 area: house.area,
+                brief: house.brief,
                 description: house.description,
                 phuong: house.phuong,
-                quan: house.quanId,
-                city: house.cityId,
+                quan: house.quan,
+                city: house.city,
             })
-            .where({id: id})
+            .where({id:id})
             .execute();
     }
     delete = async (id) => {
@@ -164,4 +168,5 @@ class HouseService {
             .execute()
     }
 }
+
 export default new HouseService()

@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="868436b5-76c5-4c3d-8168-5c470d7e626d" name="Changes" comment="push duy to dev">
+    <list default="true" id="3daf9ef7-c284-40a5-9035-0391579586e0" name="Changes" comment="push duy to dev">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/contractController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/contractController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/checkOwnerShip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkOwnerShip.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/contractRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/contractRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/contractService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/contractService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/houseService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/houseService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="giang" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,14 +82,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>2e3bc8ac-813a-4903-97d0-903bbed3c5d8</source-data-source-id>\n        <source-path>schema/&quot;local&quot;</source-path>\n        <target-data-source-id>2e3bc8ac-813a-4903-97d0-903bbed3c5d8</target-data-source-id>\n        <target-path>schema/&quot;local&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
-    "last_opened_file_path": "E:/MD-4/Case_1MD4",
+    "last_opened_file_path": "E:/MD3/CASE_MD4/src/middleware",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "E:\\MD3\\CASE_MD4\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "D:\\Project\\CodeGym\\mod4\\CASE_MD4\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -135,7 +129,6 @@
       <workItem from="1683550312797" duration="3181000" />
       <workItem from="1683594996319" duration="16740000" />
       <workItem from="1683623251814" duration="458000" />
-      <workItem from="1683701437452" duration="9197000" />
     </task>
     <task id="LOCAL-00001" summary="dang o quyen">
       <created>1683468979159</created>
