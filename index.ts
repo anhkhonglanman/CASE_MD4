@@ -4,7 +4,7 @@ import router from "./src/router/router";
 import cors from 'cors'
 import {AppDataSource} from "./src/data-source";
 const app = express();
-const hostname = '127.0.0.1';
+const hostname = 'localhost';
 const port = 8181;
 const FE_SERVER_PORT = 3000;
 AppDataSource.initialize().then(() => {

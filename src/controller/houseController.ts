@@ -10,7 +10,7 @@ class HouseController {
         let house = await houseService.findAllHouse()
         res.status(201).json(house);
     }
-    searchHouse = async (req: Request, res: Response) => {
+    searchHouse = async (req: Request, res: Response) => {  //http://example.com/?priceLow=10&priceHight=30
         console.log(req.query)
         if (!req.query.priceLow) {
             req.query.priceLow = "0";
@@ -48,7 +48,6 @@ class HouseController {
         data.city = phuongDetail.quan.city.id;
         console.log(data.city)
         console.log("data to create house:", data)
-
         let house = await houseService.addHouse(data, id);
         let idHouse = house.id
         await ImageService.addImage(idHouse, imageData)

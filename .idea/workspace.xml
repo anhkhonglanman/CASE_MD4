@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="868436b5-76c5-4c3d-8168-5c470d7e626d" name="Changes" comment="push duy to dev">
-      <change afterPath="$PROJECT_DIR$/src/middleware/checkContractClien.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/addressController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/addressController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/contractController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/contractController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/houseController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/houseController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/contract.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/contract.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/contractStatus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/contractStatus.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/userController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/middleware/checkOwnerShip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkOwnerShip.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/checkRoleLandlord.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkRoleLandlord.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/decentralization.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/checkRoleClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/contractRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/contractRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/userRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/userRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/contractService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/contractService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/imageService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/imageService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/userService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,30 +79,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>2e3bc8ac-813a-4903-97d0-903bbed3c5d8</source-data-source-id>\n        <source-path>schema/&quot;local&quot;</source-path>\n        <target-data-source-id>2e3bc8ac-813a-4903-97d0-903bbed3c5d8</target-data-source-id>\n        <target-path>schema/&quot;local&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
-    "last_opened_file_path": "E:/MD3/CASE_MD4/src/middleware",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "E:\\MD3\\CASE_MD4\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;import_schema_mapping&quot;: &quot;&lt;schema-mapping&gt;\n  &lt;databases&gt;\n    &lt;list&gt;\n      &lt;schema-mapping-item&gt;\n        &lt;source-data-source-id&gt;2e3bc8ac-813a-4903-97d0-903bbed3c5d8&lt;/source-data-source-id&gt;\n        &lt;source-path&gt;schema/&amp;quot;local&amp;quot;&lt;/source-path&gt;\n        &lt;target-data-source-id&gt;2e3bc8ac-813a-4903-97d0-903bbed3c5d8&lt;/target-data-source-id&gt;\n        &lt;target-path&gt;schema/&amp;quot;local&amp;quot;&lt;/target-path&gt;\n      &lt;/schema-mapping-item&gt;\n    &lt;/list&gt;\n  &lt;/databases&gt;\n&lt;/schema-mapping&gt;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/MD3/CASE_MD4/src/middleware&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/nguyennhattan/WebstormProjects/12/ngay16/baingay4_4/CASE_MD4/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MD3\CASE_MD4\src\middleware" />
@@ -143,6 +136,16 @@
       <workItem from="1683550312797" duration="3181000" />
       <workItem from="1683594996319" duration="16740000" />
       <workItem from="1683623251814" duration="458000" />
+      <workItem from="1684917434963" duration="3927000" />
+      <workItem from="1684924545582" duration="9207000" />
+      <workItem from="1685074835079" duration="192000" />
+      <workItem from="1685187851227" duration="4670000" />
+      <workItem from="1685201478508" duration="2309000" />
+      <workItem from="1685264557162" duration="5897000" />
+      <workItem from="1685355834392" duration="596000" />
+      <workItem from="1685417093017" duration="5034000" />
+      <workItem from="1685438967825" duration="48000" />
+      <workItem from="1685499990500" duration="1154000" />
     </task>
     <task id="LOCAL-00001" summary="dang o quyen">
       <created>1683468979159</created>

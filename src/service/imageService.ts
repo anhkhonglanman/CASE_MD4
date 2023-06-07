@@ -15,7 +15,6 @@ class ImageService{
     upDateImage = async (data,id) => {
        await this.deleteImage(id);
        await this.addImage(id,data)
-
     }
 
     deleteImage = async (idHouse) => {

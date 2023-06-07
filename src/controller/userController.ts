@@ -1,12 +1,14 @@
 import {Request, Response} from "express";
 import userService from "../service/userService";
+import bodyParser from "body-parser";
 
 class UserController{
 
     signup = async (req: Request, res: Response) => {
+        console.log(req.body)
         try {
             let check = await userService.checkUsersignup(req.body)
-            if (!check) {
+            if (!check) { // nếu tài khoản chưa tồn tại cho đăng kí
                 let newUser = await userService.createUser(req.body);
                 res.status(201).json(newUser);
             } else {
@@ -56,6 +58,7 @@ class UserController{
         try {
             let userData = req.body;
             let user = await userService.checkUser(userData);
+            console.log(user)
             res.status(200).json(user);
         }catch (e){
             console.log("error in login")

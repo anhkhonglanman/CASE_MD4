@@ -12,7 +12,7 @@ class UserService {
     }
 
 
-    createUser = async (user) => {
+    createUser = async (user) => { // mã hoá mật khẩu lại khi tạo
         let password = await bcrypt.hash(user.password, 10)
         let newUser = new User();
         newUser.name = user.name;
@@ -31,7 +31,7 @@ class UserService {
         let usserFinds = userFind[0]
         console.log(usserFinds)
         if (usserFinds) {
-            let pass = await bcrypt.compare(user.password, usserFinds.password);
+            let pass = await bcrypt.compare(user.password, usserFinds.password); // đoạn này để so sánh mật khẩu đăng nhập vào với mật khẩu đã mã hoá
             if (pass) {
                 let payload = {
                     id: usserFinds.id,
@@ -39,13 +39,16 @@ class UserService {
                     role: usserFinds.roleId
                 }
                 console.log(payload)
-                return jwt.sign(payload, SECRET, {
+                let token = jwt.sign(payload, SECRET, {
                     expiresIn: 36000 * 10 * 100
                 })
+                payload['token']= token;
+                return payload;
+            }else {
+                return 'khong dung pass'
             }
-
         } else {
-            return 'khong dung pass';
+            return 'khong dung username';
         }
     }
 
@@ -59,7 +62,7 @@ class UserService {
         user.password = await bcrypt.hash(user.password, 10)
         await this.userRepository.update({id: id}, user);
     }
-    checkUsersignup = async (user) => {
+    checkUsersignup = async (user) => { // cần check xem tên tài khoản đã tồn tại hay chưa
         let userFind = await this.userRepository.findOne({
             where: {
                 username: user.username,
